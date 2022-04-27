@@ -8,6 +8,7 @@ import UnstyledButton from "../UnstyledButton";
 import SuperHeader from "../SuperHeader";
 import MobileMenu from "../MobileMenu";
 import VisuallyHidden from "../VisuallyHidden";
+import { keyframes } from "styled-components";
 
 const Header = () => {
   const [showMobileMenu, setShowMobileMenu] = React.useState(false);
