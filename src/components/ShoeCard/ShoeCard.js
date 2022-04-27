@@ -85,13 +85,17 @@ const ImageCornerWrapper = styled.div`
 
 const Image = styled.img`
   width: 100%;
-  transition: transform 400ms;
-  transform-origin: 50% 80%;
+  display: block;
 
-  ${ImageWrapper}:hover & {
-    transition: transform 200ms;
+  @media ${QUERIES.hover} and ${QUERIES.noPreferenceReducedMotion} {
+    transition: transform 400ms;
+    transform-origin: 50% 80%;
+    will-change: transform;
 
-    @media ${QUERIES.noReducedMotion} {
+    ${Link}:hover &, 
+    ${Link}:focus & {
+      transition: transform 200ms;
+
       transform: scale(1.1);
     }
   }
@@ -160,7 +164,7 @@ const Flag = styled.div`
   border-radius: 2px;
 
   ${ImageWrapper}:hover & {
-    @media ${QUERIES.noReducedMotion} {
+    @media ${QUERIES.noPreferenceReducedMotion} {
       animation: ${bounce} 800ms ease alternate;
     }
   }

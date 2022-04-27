@@ -94,6 +94,7 @@ const Overlay = styled(DialogOverlay)`
   display: flex;
   justify-content: flex-end;
   animation: ${fadeIn} 200ms ease-out both;
+  will-change: opacity;
   perspective: 200px;
 `;
 
@@ -102,11 +103,11 @@ const Content = styled(DialogContent)`
   width: 300px;
   height: 100%;
 
-  transform-origin: right;
-
-  @media ${QUERIES.noReducedMotion} {
+  @media ${QUERIES.noPreferenceReducedMotion} {
+    transform-origin: right;
     animation: ${doorOpen} 400ms cubic-bezier(0.59, 0.27, 0, 1.05) both;
     animation-delay: 200ms;
+    will-change: transform;
   }
 `;
 
@@ -138,9 +139,10 @@ const NavLink = styled.a`
   font-size: 1.125rem;
   text-transform: uppercase;
 
-  @media ${QUERIES.noReducedMotion} {
+  @media ${QUERIES.noPreferenceReducedMotion} {
     animation: ${fadeIn} 400ms ease-out both;
     animation-delay: calc(400ms + ${({ index }) => index * 70}ms);
+    will-change: opacity;
   }
 
   &:first-of-type {
@@ -164,9 +166,10 @@ const SubLink = styled.a`
   font-size: 0.875rem;
   text-decoration: none;
 
-  @media ${QUERIES.noReducedMotion} {
+  @media ${QUERIES.noPreferenceReducedMotion} {
     animation: ${fadeIn} 400ms ease-out both;
     animation-delay: calc(200ms + ${({ index }) => index * 70}ms);
+    will-change: opacity;
   }
 `;
 
